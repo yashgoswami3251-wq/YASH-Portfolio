@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yashgiri Portfolio — Flutter Developer</title>
+  <meta name="description" content="Portfolio of Your Name, Flutter Developer & B.Tech IT Student">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    emailjs.init("W_Y7zF4reef636jai");
+</script>
+</head>
+
+<body>
+
+  <!-- ============ SIDE NAV (desktop) / TOP NAV (mobile) ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="brand-bracket"></span>YASHGIRI<span class="brand-bracket"></span>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active" data-section="home"><span class="nav-num"></span>home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about"><span class="nav-num"></span>about</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills"><span class="nav-num"></span>skills</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects"><span class="nav-num"></span>projects</a></li>
+      <li><a href="#certificates" class="nav-link" data-section="certificates"><span class="nav-num"></span>certs</a>
+      </li>
+      <li><a href="#education" class="nav-link" data-section="education"><span class="nav-num"></span>education</a>
+      </li>
+      <li><a href="#contact" class="nav-link" data-section="contact"><span class="nav-num"></span>contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="section hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">// available for internships &amp; placements — 2027 batch</p>
+          <h1 class="hero-name">Gauswami Yash</h1>
+          <h2 class="hero-role">
+            <span class="role-chip">Flutter Developer</span>
+            <span class="role-sep">|</span>
+            <span class="role-chip">B.Tech IT Student</span>
+          </h2>
+          <p class="hero-intro">
+            I build cross-platform mobile apps with Flutter &amp; Firebase — currently in my
+            5th semester, sharpening skills in mobile development, clean architecture and
+            problem solving on my way to a strong 2027 placement.
+          </p>
+          <div class="hero-actions">
+            <a href="assets/resume.pdf" download class="btn btn-primary">
+              <span class="btn-icon">↓</span> Download Resume
+            </a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/yashgoswami3251-wq" target="_blank" rel="noopener"
+              aria-label="GitHub">GitHub</a>
+            <a href="https://www.linkedin.com/in/yashgiri-gauswami-401738388/?isSelfProfile=false" target="_blank"
+              rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yashgoswami3251@gmail.com" target="_blank">
+              Email Me
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
+              <span class="terminal-title">flutter run — main.dart</span>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+              <!-- typed by script.js -->
+            </div>
+          </div>
+          <div class="photo-frame">
+            <img src="assets/profile.jpg" alt="Your Name" onerror="this.parentElement.classList.add('photo-empty')">
+            <span class="photo-fallback">Add<br>profile.jpg</span>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+      <p class="section-label"><span class="nav-num"></span> about</p>
+      <h2 class="section-title">Who I Am</h2>
+
+      <div class="about-grid">
+        <div class="about-code">
+          <pre><code><span class="tok-kw">class</span> <span class="tok-class">Developer</span> <span class="tok-kw">extends</span> <span class="tok-class">Person</span> {
+  <span class="tok-type">String</span> name        = <span class="tok-str">'Gauswami Yashgiri'</span>;
+  <span class="tok-type">String</span> role        = <span class="tok-str">'Flutter Developer'</span>;
+  <span class="tok-type">String</span> education   = <span class="tok-str">'B.Tech IT, 5th Sem'</span>;
+  <span class="tok-type">String</span> institute   = <span class="tok-str">'RK University'</span>;
+  <span class="tok-type">int</span>    gradYear    = <span class="tok-num">2028</span>;
+  <span class="tok-type">List&lt;String&gt;</span> goals = [
+    <span class="tok-str">'Get placed in 2027'</span>,
+    <span class="tok-str">'Ship production Flutter apps'</span>,
+    <span class="tok-str">'Master clean architecture'</span>,
+  ];
+}</code></pre>
+        </div>
+
+        <div class="about-content">
+          <div class="about-block">
+            <h3 class="about-block-title">Career Objective</h3>
+            <p>
+              A driven B.Tech Information Technology student aiming to build a strong
+              career in mobile application development. I want to contribute to
+              real-world Flutter products, keep improving my fundamentals in DSA and
+              system design, and land a solid placement in the 2027 hiring cycle.
+            </p>
+          </div>
+
+          <div class="about-block">
+            <h3 class="about-block-title">Education</h3>
+            <ul class="about-list">
+              <li><strong>B.Tech, Information Technology</strong> — RK University <span class="dim">(Expected
+                  2028)</span></li>
+              <li><strong>Diploma in Information Technology (IT)</strong> — Government Polytechnic Gandhinagar <span
+                  class="dim">(Completed: 2025)</span></li>
+              <li><strong>SSC (10th)</strong> — Vidhyoday Vidhya Sankul <span class="dim">(2022)</span></li>
+            </ul>
+          </div>
+
+          <div class="about-block">
+            <h3 class="about-block-title">What I'm Currently Doing</h3>
+            <ul class="about-list">
+              <li>
+                <strong>Flutter App Development & Learning</strong> — B.Tech IT Student
+                <span class="dim">(2026 – Present)</span>
+                <p class="about-list-desc">
+                  I am actively developing cross-platform mobile applications using Flutter
+                  and Dart. Alongside my B.Tech studies, I am building portfolio projects,
+                  learning Firebase, REST APIs, state management, clean UI design, and
+                  using Git & GitHub to prepare for software development internships and
+                  full-time opportunities.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section skills">
+      <p class="section-label"><span class="nav-num"></span> skills</p>
+      <h2 class="section-title">Tech Stack</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3 class="skill-cat"><span class="skill-icon">⌨</span> Programming Languages</h3>
+          <div class="chip-row">
+            <span class="chip">Dart</span>
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-cat"><span class="skill-icon">▦</span> Frameworks</h3>
+          <div class="chip-row">
+            <span class="chip">Flutter</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">REST API</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-cat"><span class="skill-icon">⛁</span> Database</h3>
+          <div class="chip-row">
+            <span class="chip">Firebase Firestore</span>
+            <span class="chip">MySQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-cat"><span class="skill-icon">✦</span> Tools</h3>
+          <div class="chip-row">
+            <span class="chip">Git</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">Android Studio</span>
+            <span class="chip">Visual Studio</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section projects">
+      <p class="section-label"><span class="nav-num"></span> projects</p>
+      <h2 class="section-title">Things I've Built</h2>
+
+      <div class="project-grid">
+
+        
+
+        <article class="project-card">
+          <div class="project-image img-empty">
+            <span class="img-fallback">Launching soon</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-name">Launching Soon</h3>
+            <p class="project-desc">
+              Currently I am investing my time in making a real world project.
+              Once it is completed, it will be displayed here with technologies
+              and screenshots.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="certificates" class="section certificates">
+  <p class="section-label"><span class="nav-num"></span> certificates</p>
+  <h2 class="section-title">Certifications</h2>
+
+  <div class="cert-grid">
+
+    <!-- Python Essentials -->
+    <a href="assets/PythonEssential.pdf" target="_blank" class="cert-link">
+      <div class="cert-card">
+        <span class="cert-badge">✓</span>
+        <div>
+          <h3 class="cert-name">Python Essentials</h3>
+          <p class="cert-issuer">Cisco Networking Academy</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- CCNA -->
+    <a href="assets/DCN Certificate.pdf" target="_blank" class="cert-link">
+      <div class="cert-card">
+        <span class="cert-badge">✓</span>
+        <div>
+          <h3 class="cert-name">CCNA</h3>
+          <p class="cert-issuer">Cisco Networking Academy</p>
+        </div>
+      </div>
+    </a>
+
+    <!-- Java -->
+    <a href="assets/Java certificate.pdf" target="_blank" class="cert-link">
+      <div class="cert-card">
+        <span class="cert-badge">✓</span>
+        <div>
+          <h3 class="cert-name">Java Developer</h3>
+          <p class="cert-issuer">Infosys Springboard</p>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education" class="section education">
+      <p class="section-label"><span class="nav-num"></span> education</p>
+      <h2 class="section-title">Academic Record</h2>
+
+      <div class="edu-table-wrap">
+        <table class="edu-table">
+          <thead>
+            <tr>
+              <th>Qualification</th>
+              <th>Institute</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>B.Tech, Information Technology</td>
+              <td>RK University</td>
+              <td>2028 <span class="dim">(Expected)</span></td>
+            </tr>
+            <tr>
+              <td>Diploma in Information Technology (IT)</td>
+              <td>Government Polytechnic Gandhinagar</td>
+              <td>(Completed: 2025)</td>
+            </tr>
+            <tr>
+              <td>SSC (10th)</td>
+              <td>Vidhyoday Vidhya Sankul</td>
+              <td>(2022)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="resume-cta">
+        <div>
+          <h3>Want the full picture?</h3>
+          <p>Grab a copy of my complete resume — education, skills and projects in one PDF.</p>
+        </div>
+        <a href="assets/resume.pdf" download class="btn btn-primary">
+          <span class="btn-icon">📄</span> Download CV
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section contact">
+      <p class="section-label"><span class="nav-num"></span> contact</p>
+      <h2 class="section-title">Let's Connect</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-lead">
+            Recruiting for internships or full-time roles starting 2027? Or just want to
+            talk Flutter? My inbox is open.
+          </p>
+          <ul class="contact-list">
+            <li><span class="contact-label">Email</span><a href="mailto:you@example.com">yashgoswami3251@gmail.com</a></li>
+            <li><span class="contact-label">Phone</span><a href="tel:+910000000000">+91 93169 34085</a></li>
+            <li><span class="contact-label">Location</span><span>Rajkot, Gujarat, India</span></li>
+            <li><span class="contact-label">LinkedIn</span><a href="https://linkedin.com/in/www.linkedin.com/in/yashgiri-gauswami-401738388"
+                target="_blank" rel="noopener">linkedin.com/in/yashgiri-gauswami</a></li>
+            <li><span class="contact-label">GitHub</span><a href="https://github.com/yashgoswami3251-wq " target="_blank"
+                rel="noopener">github.com/yashgoswami3251-wq </a></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@gmail.com" required>
+
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="What would you like to say?"
+            required></textarea>
+
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Built by Yash © <span id="year"></span></p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
