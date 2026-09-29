@@ -1,198 +1,562 @@
-// =========================================================
-// MOBILE NAV TOGGLE
-// =========================================================
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+/* ==========================================
+   YASHGIRI GAUSWAMI PORTFOLIO
+   JAVASCRIPT
+========================================== */
 
-navToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', isOpen);
-});
 
-navLinks.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
+/* ==========================================
+   ELEMENTS
+========================================== */
 
-// =========================================================
-// ACTIVE NAV LINK ON SCROLL
-// =========================================================
-const sections = document.querySelectorAll('.section');
-const navItems = document.querySelectorAll('.nav-link');
+const body = document.body;
 
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navItems.forEach(link => {
-        link.classList.toggle('active', link.dataset.section === id);
-      });
+const header =
+    document.querySelector(".site-header");
+
+const navToggle =
+    document.getElementById("navToggle");
+
+const navMenu =
+    document.getElementById("navMenu");
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const themeIcon =
+    document.getElementById("themeIcon");
+
+const year =
+    document.getElementById("year");
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const formStatus =
+    document.getElementById("formStatus");
+
+
+
+/* ==========================================
+   FOOTER YEAR
+========================================== */
+
+year.textContent =
+    new Date().getFullYear();
+
+
+
+/* ==========================================
+   MOBILE NAVIGATION
+========================================== */
+
+function closeMenu() {
+
+    navMenu.classList.remove("open");
+
+    navToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    navToggle.setAttribute(
+        "aria-label",
+        "Open navigation"
+    );
+}
+
+
+navToggle.addEventListener(
+    "click",
+    function () {
+
+        const isOpen =
+            navMenu.classList.toggle("open");
+
+
+        navToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+
+        navToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation"
+                : "Open navigation"
+        );
+
     }
-  });
-}, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-
-sections.forEach(section => navObserver.observe(section));
-
-// =========================================================
-// SCROLL REVEAL
-// =========================================================
-const revealTargets = document.querySelectorAll(
-  '.about-grid, .skills-grid, .project-card, .cert-card, .edu-table-wrap, .resume-cta, .contact-grid'
 );
-revealTargets.forEach(el => el.classList.add('reveal'));
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      revealObserver.unobserve(entry.target);
+
+
+/* Close menu after clicking link */
+
+navLinks.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            closeMenu
+        );
+
     }
-  });
-}, { threshold: 0.15 });
+);
 
-revealTargets.forEach(el => revealObserver.observe(el));
 
-// =========================================================
-// HERO TERMINAL — TYPED "BUILD LOG"
-// =========================================================
-const terminalBody = document.getElementById('terminalBody');
 
-const buildLog = [
-  { type: 'prompt', text: '$ flutter run' },
-  { type: 'plain',  text: 'Launching lib/main.dart...' },
-  { type: 'kv',     key: 'name',       val: 'Gauswami Yashgiri' },
-  { type: 'kv',     key: 'role',       val: 'Flutter Developer' },
-  { type: 'kv',     key: 'status',     val: 'B.Tech IT, 5th Sem' },
-  { type: 'kv',     key: 'targetYear', val: '2027 Placement' },
-  { type: 'plain',  text: '✓ Build succeeded. Ready to ship.' },
-];
+/* Close menu outside */
 
-function typeLine(container, prefix, text, className, speed = 22) {
-  return new Promise(resolve => {
-    const lineEl = document.createElement('div');
-    lineEl.className = 'line';
-    if (prefix) {
-      const span = document.createElement('span');
-      span.className = className;
-      span.textContent = prefix;
-      lineEl.appendChild(span);
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !navMenu.contains(event.target) &&
+            !navToggle.contains(event.target)
+        ) {
+
+            closeMenu();
+
+        }
+
     }
-    const textNode = document.createElement('span');
-    lineEl.appendChild(textNode);
-    container.appendChild(lineEl);
+);
 
-    let i = 0;
-    const interval = setInterval(() => {
-      textNode.textContent += text[i];
-      i++;
-      if (i >= text.length) {
-        clearInterval(interval);
-        resolve();
-      }
-    }, speed);
-  });
-}
 
-async function runBuildLog() {
-  if (!terminalBody) return;
-  terminalBody.innerHTML = '';
 
-  for (const entry of buildLog) {
-    if (entry.type === 'prompt') {
-      await typeLine(terminalBody, '', entry.text, 't-prompt', 32);
-      terminalBody.lastChild.querySelector('span').className = 't-prompt';
-    } else if (entry.type === 'kv') {
-      const lineEl = document.createElement('div');
-      lineEl.className = 'line';
-      const keySpan = document.createElement('span');
-      keySpan.className = 't-key';
-      keySpan.textContent = entry.key + ': ';
-      const valSpan = document.createElement('span');
-      valSpan.className = 't-val';
-      lineEl.appendChild(keySpan);
-      lineEl.appendChild(valSpan);
-      terminalBody.appendChild(lineEl);
+/* ==========================================
+   HEADER SCROLL EFFECT
+========================================== */
 
-      let i = 0;
-      await new Promise(resolve => {
-        const interval = setInterval(() => {
-          valSpan.textContent += entry.val[i];
-          i++;
-          if (i >= entry.val.length) { clearInterval(interval); resolve(); }
-        }, 20);
-      });
+function updateHeader() {
+
+    if (window.scrollY > 15) {
+
+        header.classList.add("scrolled");
+
     } else {
-      await typeLine(terminalBody, '', entry.text, 't-plain', 14);
+
+        header.classList.remove("scrolled");
+
     }
-    await new Promise(r => setTimeout(r, 120));
-  }
-
-  const cursor = document.createElement('span');
-  cursor.className = 'cursor';
-  terminalBody.appendChild(cursor);
-}
-
-// Kick off once the hero terminal is visible
-const heroObserver = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      runBuildLog();
-      obs.disconnect();
-    }
-  });
-}, { threshold: 0.3 });
-
-if (terminalBody) heroObserver.observe(terminalBody);
-
-// =========================================================
-// CONTACT FORM — EmailJS
-// =========================================================
-const contactForm = document.getElementById('contactForm');
-const formNote = document.getElementById('formNote');
-
-if (contactForm) {
-
-  contactForm.addEventListener('submit', function (e) {
-
-    e.preventDefault();
-
-    formNote.style.color = "#4db8ff";
-    formNote.textContent = "Sending message...";
-
-    emailjs.sendForm(
-      "service_0247oho",
-      "template_wxlq7o9",
-      this
-    )
-    .then(() => {
-
-      formNote.style.color = "#00ff99";
-      formNote.textContent = "✅ Message sent successfully.";
-
-      contactForm.reset();
-
-      setTimeout(() => {
-        formNote.textContent = "";
-      }, 4000);
-
-    })
-    .catch((error) => {
-
-      console.error("EmailJS Error:", error);
-
-      formNote.style.color = "#ff4d4d";
-      formNote.textContent = "❌ Failed to send message. Please try again.";
-
-    });
-
-  });
 
 }
 
-// =========================================================
-// FOOTER YEAR
-// =========================================================
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+updateHeader();
+
+
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    {
+        passive: true
+    }
+);
+
+
+
+/* ==========================================
+   ACTIVE NAVIGATION
+========================================== */
+
+const sections =
+    document.querySelectorAll(
+        "main section[id]"
+    );
+
+
+const sectionObserver =
+    new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(
+                function (entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        navLinks.forEach(
+                            function (link) {
+
+                                link.classList.toggle(
+
+                                    "active",
+
+                                    link.getAttribute(
+                                        "href"
+                                    ) ===
+                                    `#${entry.target.id}`
+
+                                );
+
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            rootMargin:
+                "-30% 0px -55% 0px",
+
+            threshold: 0
+        }
+
+    );
+
+
+sections.forEach(
+    function (section) {
+
+        sectionObserver.observe(
+            section
+        );
+
+    }
+);
+
+
+
+/* ==========================================
+   DARK / LIGHT MODE
+========================================== */
+
+const savedTheme =
+    localStorage.getItem(
+        "portfolio-theme"
+    );
+
+
+if (savedTheme === "dark") {
+
+    body.dataset.theme =
+        "dark";
+
+}
+
+
+
+function updateThemeButton() {
+
+    const isDark =
+        body.dataset.theme === "dark";
+
+
+    themeIcon.textContent =
+        isDark
+            ? "☀"
+            : "☾";
+
+
+    themeToggle.setAttribute(
+
+        "aria-label",
+
+        isDark
+            ? "Switch to light mode"
+            : "Switch to dark mode"
+
+    );
+
+}
+
+
+updateThemeButton();
+
+
+
+themeToggle.addEventListener(
+    "click",
+    function () {
+
+        const isDark =
+            body.dataset.theme === "dark";
+
+
+        if (isDark) {
+
+            delete body.dataset.theme;
+
+            localStorage.setItem(
+                "portfolio-theme",
+                "light"
+            );
+
+        } else {
+
+            body.dataset.theme =
+                "dark";
+
+            localStorage.setItem(
+                "portfolio-theme",
+                "dark"
+            );
+
+        }
+
+
+        updateThemeButton();
+
+    }
+);
+
+
+
+/* ==========================================
+   PROJECT FILTERING
+========================================== */
+
+filterButtons.forEach(
+    function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                /* Remove active */
+
+                filterButtons.forEach(
+                    function (btn) {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                /* Add active */
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                const filter =
+                    button.dataset.filter;
+
+
+                /* Filter projects */
+
+                projectCards.forEach(
+                    function (card) {
+
+                        const category =
+                            card.dataset.category;
+
+
+                        const shouldShow =
+                            filter === "all" ||
+                            category === filter;
+
+
+                        if (shouldShow) {
+
+                            card.classList.remove(
+                                "hidden"
+                            );
+
+                        } else {
+
+                            card.classList.add(
+                                "hidden"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+const revealItems =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        function (entries, observer) {
+
+            entries.forEach(
+                function (entry) {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: 0.10
+        }
+
+    );
+
+
+revealItems.forEach(
+    function (item) {
+
+        revealObserver.observe(
+            item
+        );
+
+    }
+);
+
+
+
+/* ==========================================
+   CONTACT FORM
+========================================== */
+
+/*
+    This is a static website.
+
+    Therefore, the contact form uses mailto:
+    instead of requiring a backend/server.
+
+    When the user submits the form,
+    their default email application opens.
+*/
+
+
+contactForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+                .getElementById("name")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const subject =
+            document
+                .getElementById("subject")
+                .value
+                .trim();
+
+
+        const message =
+            document
+                .getElementById("message")
+                .value
+                .trim();
+
+
+
+        /* Validation */
+
+        if (
+            !name ||
+            !email ||
+            !subject ||
+            !message
+        ) {
+
+            formStatus.textContent =
+                "Please fill in all fields.";
+
+            return;
+
+        }
+
+
+
+        /* Email subject */
+
+        const mailSubject =
+            encodeURIComponent(
+                subject
+            );
+
+
+
+        /* Email body */
+
+        const mailBody =
+            encodeURIComponent(
+
+                `Name: ${name}
+Email: ${email}
+
+${message}`
+
+            );
+
+
+
+        formStatus.textContent =
+            "Opening your email application...";
+
+
+
+        /* Open email */
+
+        window.location.href =
+
+            `mailto:yashgoswami3251@gmail.com` +
+
+            `?subject=${mailSubject}` +
+
+            `&body=${mailBody}`;
+
+    }
+);
