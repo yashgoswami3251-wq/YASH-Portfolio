@@ -1,6 +1,6 @@
 # 🌐 My Portfolio
 
-Live Link :- http://127.0.0.1:5500/index.html#projects
+Live Link :- http://127.0.0.1:5500/index.html#home
 
 Welcome to my personal portfolio website! I'm **Yashgiri Gauswami**, a developer passionate about building modern, responsive, and user-friendly applications.
 
